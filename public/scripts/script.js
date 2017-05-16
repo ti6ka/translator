@@ -265,7 +265,7 @@ function yandexStatistics()
             var mt = '<h4>Яндекс</h4><input type="date" id="start" value="2017-01-01"> - <input type="date" id="finish" value="2017-01-01"> <button type="button" class="btn btn-primary" onclick="showStatYandex()">Показать</button>';
             var mb = '<table class="table"><thead><th>Дата</th><th>Переводов</th><th>Символов</th><th>Лайков</th><th>Дизлайков</th></thead><tbody>';
                 for (var i = 0; i < data.length; i++) {
-                    mb += '<tr><td>' + data[i].date_transl.replace('T00:00:00.000Z', '') + '</td>' +
+                    mb += '<tr><td>' + data[i].date.replace('T00:00:00.000Z', '') + '</td>' +
                         '<td>' + data[i].number_translations + '</td>' +
                         '<td>' + data[i].characters_translation + '</td>' +
                         '<td>' + data[i].positive_evaluation + '</td>' +
@@ -303,7 +303,7 @@ function showStatYandex()
                 var mt = '<h4>Яндекс</h4><input type="date" id="start" value="2017-05-09"> - <input type="date" id="finish" value="2017-05-15"> <button type="button" class="btn btn-primary" onclick="showStatYandex()">Показать</button>';
                 var mb = '<table class="table"><thead><th>Дата</th><th>Переводов</th><th>Символов</th><th>Лайков</th><th>Дизлайков</th></thead><tbody>';
                     for (var i = 0; i < data.length; i++) {
-                        mb += '<tr><td>' + data[i].date_transl.replace('T00:00:00.000Z', '') + '</td>' +
+                        mb += '<tr><td>' + data[i].date.replace('T00:00:00.000Z', '') + '</td>' +
                             '<td>' + data[i].number_translations + '</td>' +
                             '<td>' + data[i].characters_translation + '</td>' +
                             '<td>' + data[i].positive_evaluation + '</td>' +
@@ -343,7 +343,7 @@ function transltrStatistics()
             var mb = '<table class="table"><thead><th>Дата</th><th>Переводов</th><th>Символов</th><th>Лайков</th><th>Дизлайков</th></thead><tbody>';
             for (var i = 0; i < data.length; i++)
             {
-                mb += '<tr><td>' + data[i].date_transl.replace('T00:00:00.000Z', '') + '</td>' +
+                mb += '<tr><td>' + data[i].date.replace('T00:00:00.000Z', '') + '</td>' +
                           '<td>' + data[i].number_translations +'</td>' +
                           '<td>' + data[i].characters_translation + '</td>' +
                           '<td>' + data[i].positive_evaluation + '</td>' +
@@ -381,7 +381,7 @@ function showStatTransltr()
                 var mt = '<h4>Transltr</h4><input type="date" id="start" value="2017-05-09"> - <input type="date" id="finish" value="2017-05-15"> <button type="button" class="btn btn-primary" onclick="showStatTransltr()">Показать</button>';
                 var mb = '<table class="table"><thead><th>Дата</th><th>Переводов</th><th>Символов</th><th>Лайков</th><th>Дизлайков</th></thead><tbody>';
                 for (var i = 0; i < data.length; i++) {
-                    mb += '<tr><td>' + data[i].date_transl.replace('T00:00:00.000Z', '') + '</td>' +
+                    mb += '<tr><td>' + data[i].date.replace('T00:00:00.000Z', '') + '</td>' +
                         '<td>' + data[i].number_translations + '</td>' +
                         '<td>' + data[i].characters_translation + '</td>' +
                         '<td>' + data[i].positive_evaluation + '</td>' +

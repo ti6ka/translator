@@ -42,7 +42,7 @@ module.exports = (yandexRepository, errors) =>
                         if (!err)
                         {
                             var day = dateFormat(new Date(), 'yyyy-mm-dd');
-                            yandexRepository.findOne({ where: { date_transl: { $like: day.toString() } }, raw: true })
+                            yandexRepository.findOne({ where: { date: { $like: day } }, raw: true })
                                 .then((statistic) =>
                                 {
                                     if(statistic === null)
@@ -53,7 +53,7 @@ module.exports = (yandexRepository, errors) =>
                                             characters_translation: text.length,
                                             positive_evaluation: 0,
                                             negative_evaluation: 0,
-                                            date_transl: day.toString()
+                                            date: day
                                         };
                                         yandexRepository.create(statistics);
                                     }
@@ -64,7 +64,7 @@ module.exports = (yandexRepository, errors) =>
                                             number_translations: statistic.number_translations + 1,
                                             characters_translation: statistic.characters_translation + text.length
                                         };
-                                        yandexRepository.update(newstatistics, { where: { date_transl: { $like: day.toString() } } });
+                                        yandexRepository.update(newstatistics, { where: { date: { $like: day } } });
                                     }
                                     resolve(res.body.text[0]);
                                 })
@@ -141,12 +141,12 @@ module.exports = (yandexRepository, errors) =>
             return new Promise((resolve, reject) =>
             {
                 let day = dateFormat(new Date(), 'yyyy-mm-dd');
-                yandexRepository.findOne({ where: { date_transl: { $like: day } }, raw: true })
+                yandexRepository.findOne({ where: { date: { $like: day } }, raw: true })
                     .then((data) =>
                     {
                         if(data != null)
                         {
-                            yandexRepository.update({ positive_evaluation: data.positive_evaluation + 1 }, { where: { date_transl: { $like: day } } })
+                            yandexRepository.update({ positive_evaluation: data.positive_evaluation + 1 }, { where: { date: { $like: day } } })
                                 .then((newdata) =>
                                 {
                                     resolve(newdata);
@@ -166,12 +166,12 @@ module.exports = (yandexRepository, errors) =>
             return new Promise((resolve, reject) =>
             {
                 let day = dateFormat(new Date(), 'yyyy-mm-dd');
-                yandexRepository.findOne({ where: { date_transl: { $like: day } }, raw: true })
+                yandexRepository.findOne({ where: { date: { $like: day } }, raw: true })
                     .then((data) =>
                     {
                         if(data != null)
                         {
-                            yandexRepository.update({ negative_evaluation: data.negative_evaluation + 1 }, { where: { date_transl: { $like: day } } })
+                            yandexRepository.update({ negative_evaluation: data.negative_evaluation + 1 }, { where: { date: { $like: day } } })
                                 .then((newstat) =>
                                 {
                                     resolve(newstat);
@@ -193,7 +193,7 @@ module.exports = (yandexRepository, errors) =>
                 if(start == '' || finish == '' || start == undefined || finish == undefined) reject(errors.nullValue)
                 else
                 {
-                    yandexRepository.findAll({where: { $and: [{date_transl: {gte: start}}, {date_transl: {lte: finish}}]}, order: 'date_transl DESC' })
+                    yandexRepository.findAll({where: { $and: [{date: {gte: start}}, {date: {lte: finish}}]}, order: 'date DESC' })
                         .then((statistics) =>
                         {
                             if (statistics.length != 0)
