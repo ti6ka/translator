@@ -65,7 +65,7 @@ module.exports = (transltrRepository, errors) =>
                                             number_translations: statistic.number_translations + 1,
                                             characters_translation: statistic.characters_translation + text.length
                                         };
-                                        transltrRepository.update(newstatistics, {where: {date: {$like: day}}});
+                                        transltrRepository.update(newstatistics, {where: {date_transl: {$like: day}}});
                                     }
                                 })
                             resolve(res.body.translationText);

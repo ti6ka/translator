@@ -64,7 +64,7 @@ module.exports = (yandexRepository, errors) =>
                                             number_translations: statistic.number_translations + 1,
                                             characters_translation: statistic.characters_translation + text.length
                                         };
-                                        yandexRepository.update(newstatistics, { where: { date: { $like: day } } });
+                                        yandexRepository.update(newstatistics, { where: { date_transl: { $like: day } } });
                                     }
                                     resolve(res.body.text[0]);
                                 })
