@@ -13,6 +13,6 @@ module.exports = (Sequelize, sequelize) =>
         characters_translation: Sequelize.INTEGER,
         positive_evaluation: Sequelize.INTEGER,
         negative_evaluation: Sequelize.INTEGER,
-        date: Sequelize.DATEONLY
+        date_transl: Sequelize.DATEONLY
     });
 };

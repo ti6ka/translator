@@ -43,7 +43,7 @@ module.exports = (transltrRepository, errors) =>
                         if (!err)
                         {
                             var day = dateFormat(new Date(), 'yyyy-mm-dd');
-                            transltrRepository.findOne({where: {date: {$like: day}}, raw: true})
+                            transltrRepository.findOne({where: {date_transl: {$like: day}}, raw: true})
                                 .then((statistic) =>
                                 {
                                     if (statistic === null)
@@ -54,7 +54,7 @@ module.exports = (transltrRepository, errors) =>
                                             characters_translation: text.length,
                                             positive_evaluation: 0,
                                             negative_evaluation: 0,
-                                            date: day
+                                            date_transl: day
                                         };
                                         transltrRepository.create(statistics);
                                     }
@@ -142,12 +142,12 @@ module.exports = (transltrRepository, errors) =>
             return new Promise((resolve, reject) =>
             {
                 let day = dateFormat(new Date(), 'yyyy-mm-dd');
-                transltrRepository.findOne({ where: { date: { $like: day } }, raw: true })
+                transltrRepository.findOne({ where: { date_transl: { $like: day } }, raw: true })
                     .then((data) =>
                     {
                         if(data != null)
                         {
-                            transltrRepository.update({ positive_evaluation: data.positive_evaluation + 1 }, { where: { date: { $like: day } } })
+                            transltrRepository.update({ positive_evaluation: data.positive_evaluation + 1 }, { where: { date_transl: { $like: day } } })
                                 .then((newdata) =>
                                 {
                                     resolve(newdata);
@@ -167,12 +167,12 @@ module.exports = (transltrRepository, errors) =>
             return new Promise((resolve, reject) =>
             {
                 let day = dateFormat(new Date(), 'yyyy-mm-dd');
-                transltrRepository.findOne({ where: { date: { $like: day } }, raw: true })
+                transltrRepository.findOne({ where: { date_transl: { $like: day } }, raw: true })
                     .then((data) =>
                     {
                         if(data != null)
                         {
-                            transltrRepository.update({ negative_evaluation: data.negative_evaluation + 1 }, { where: { date: { $like: day } } })
+                            transltrRepository.update({ negative_evaluation: data.negative_evaluation + 1 }, { where: { date_transl: { $like: day } } })
                                 .then((newdata) =>
                                 {
                                     resolve(newdata);
@@ -194,7 +194,7 @@ module.exports = (transltrRepository, errors) =>
                 if(start == '' || finish == '' || start == undefined || finish == undefined) reject(errors.nullValue)
                 else
                 {
-                    transltrRepository.findAll({where: { $and: [{date: {gte: start}}, {date: {lte: finish}}]}, order: 'date DESC' })
+                    transltrRepository.findAll({where: { $and: [{date_transl: {gte: start}}, {date_transl: {lte: finish}}]}, order: 'date_transl DESC' })
                         .then((statistics) =>
                         {
                             if (statistics.length != 0)
