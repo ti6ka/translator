@@ -55,12 +55,7 @@ module.exports = (yandexRepository, errors) =>
                                             negative_evaluation: 0,
                                             date: day
                                         };
-                                        yandexRepository.create(statistics)
-                                            .then((data) =>
-                                            {
-                                                resolve(data);
-                                            })
-                                            .catch(reject);
+                                        yandexRepository.create(statistics);
                                     }
                                     else
                                     {
@@ -69,12 +64,7 @@ module.exports = (yandexRepository, errors) =>
                                             number_translations: statistic.number_translations + 1,
                                             characters_translation: statistic.characters_translation + text.length
                                         };
-                                        yandexRepository.update(newstatistics, { where: { date: { $like: day } } })
-                                            .then((newdata) =>
-                                            {
-                                                resolve(newdata);
-                                            })
-                                            .catch(reject);
+                                        yandexRepository.update(newstatistics, { where: { date: { $like: day } } });
                                     }
                                     resolve(res.body.text[0]);
                                 })
