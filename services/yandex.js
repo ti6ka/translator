@@ -42,7 +42,7 @@ module.exports = (yandexRepository, errors) =>
                         if (!err)
                         {
                             var day = dateFormat(new Date(), 'yyyy-mm-dd');
-                            yandexRepository.findOne({ where: { date_transl: { $like: day } }, raw: true })
+                            yandexRepository.findOne({ where: { date_transl: { $like: day.toString() } }, raw: true })
                                 .then((statistic) =>
                                 {
                                     if(statistic === null)
@@ -53,7 +53,7 @@ module.exports = (yandexRepository, errors) =>
                                             characters_translation: text.length,
                                             positive_evaluation: 0,
                                             negative_evaluation: 0,
-                                            date_transl: day
+                                            date_transl: day.toString()
                                         };
                                         yandexRepository.create(statistics);
                                     }
@@ -64,7 +64,7 @@ module.exports = (yandexRepository, errors) =>
                                             number_translations: statistic.number_translations + 1,
                                             characters_translation: statistic.characters_translation + text.length
                                         };
-                                        yandexRepository.update(newstatistics, { where: { date_transl: { $like: day } } });
+                                        yandexRepository.update(newstatistics, { where: { date_transl: { $like: day.toString() } } });
                                     }
                                     resolve(res.body.text[0]);
                                 })
