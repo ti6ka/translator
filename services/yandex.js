@@ -125,6 +125,7 @@ module.exports = (yandexRepository, errors) =>
                         {
                             if (!err)
                             {
+								console.log(res.body.ParsedResults[0].ParsedText);
                                 resolve(res.body.ParsedResults[0].ParsedText);
                             }
                             if (err)
