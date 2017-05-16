@@ -1,0 +1,22 @@
+{
+  "production":
+  {
+    "host": "ec2-23-21-111-81.compute-1.amazonaws.com",
+    "name": "d6g0t5m3p1deov",
+    "user": "pnolfranqqrwmv",
+    "password": "83e5c37cd69f368f3d3a3b2237b567f468682ca2144df1da3b33272eebd567fe"
+  },
+  "db":
+  {
+    "host": "127.0.0.1",
+    "name": "Translator",
+    "user": "root",
+    "password": ""
+  },
+  "env": "dev",
+  "cookie":
+  {
+    "yandex": "",
+    "transltr": ""
+  }
+}

@@ -1,0 +1,369 @@
+swagger: '2.0'
+info:
+  description: Translator documentation
+  version: 1.0.0
+  title: translator-api
+host: 'localhost:3000'
+basePath: /api
+schemes:
+  - http
+produces:
+  - application/json
+  - text/json
+paths:
+  /yandex/statistics:
+    post:
+      description: Statistics
+      operationId: getStatistics
+      tags:
+        - Yandex
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataStatistics'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GetStatisticsYandexListResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: yandex
+    x-swagger-router-controller: yandex
+  /yandex/text:
+    post:
+      description: Translate
+      operationId: translate
+      tags:
+        - Yandex
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataText'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: yandex
+    x-swagger-router-controller: yandex
+  /yandex/image:
+    post:
+      description: Recognize
+      operationId: textRecognize
+      tags:
+        - Yandex
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataImage'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: yandex
+    x-swagger-router-controller: yandex
+  /yandex/like:
+    post:
+      description: Like
+      operationId: like
+      tags:
+        - Yandex
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataLike'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: yandex
+    x-swagger-router-controller: yandex
+  /yandex/dislike:
+    post:
+      description: Dislike
+      operationId: dislike
+      tags:
+        - Yandex
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataDislike'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: yandex
+    x-swagger-router-controller: yandex
+  /transltr/statistics:
+    post:
+      description: Statistics
+      operationId: getStatistics
+      tags:
+        - Transltr
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataStatistics'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GetStatisticsTransltrListResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: transltr
+    x-swagger-router-controller: transltr
+  /transltr/text:
+    post:
+      description: Translate
+      operationId: translate
+      tags:
+        - Transltr
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataText'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: transltr
+    x-swagger-router-controller: transltr
+  /transltr/image:
+    post:
+      description: Recognize
+      operationId: textRecognize
+      tags:
+        - Transltr
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataImage'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: transltr
+    x-swagger-router-controller: transltr
+  /transltr/like:
+    post:
+      description: Like
+      operationId: like
+      tags:
+        - Transltr
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataLike'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: transltr
+    x-swagger-router-controller: transltr
+  /transltr/dislike:
+    post:
+      description: Dislike
+      operationId: dislike
+      tags:
+        - Transltr
+      parameters:
+        - in: body
+          name: title
+          description: Input data
+          required: true
+          schema:
+            $ref: '#/definitions/DataDislike'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/Error'
+      x-swagger-router-controller: transltr
+    x-swagger-router-controller: transltr
+definitions:
+  GetStatisticsYandexListResponse:
+    required:
+      - yandex
+    properties:
+      yandex:
+        type: array
+        items:
+          $ref: '#/definitions/getStatistics_yandex'
+  GetStatisticsTransltrListResponse:
+    required:
+      - transltr
+    properties:
+      yandex:
+        type: array
+        items:
+          $ref: '#/definitions/getStatistics_transltr'
+  DataText:
+    type: object
+    required:
+      - text
+      - from
+      - to
+    properties:
+      text:
+        type: string
+        description: Text
+      from:
+        type: string
+        description: Language from
+      to:
+        type: string
+        description: Language to
+  DataStatistics:
+    type: object
+    required:
+      - start
+      - finish
+    properties:
+      start:
+        type: string
+        description: Start date
+      finish:
+        type: string
+        description: Finish date
+  DataImage:
+    type: object
+    required:
+      - image
+      - language
+    properties:
+      image:
+        type: string
+        description: URL image
+      language:
+        type: string
+        description: Language text
+  DataLike:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        description: Text
+  DataDislike:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        description: Text
+  GeneralResponse:
+    type: object
+    required:
+      - description
+      - success
+    properties:
+      success:
+        type: number
+      description:
+        type: string
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
+      code:
+        type: string
+      status:
+        type: integer
+  getStatistics_yandex:
+    properties:
+      number_translations:
+        type: integer
+      characters_translation:
+        type: integer
+      positive_evaluation:
+        type: integer
+      negative_evaluation:
+        type: integer
+      date:
+        type: string
+  getStatistics_transltr:
+    properties:
+      number_translations:
+        type: integer
+      characters_translation:
+        type: integer
+      positive_evaluation:
+        type: integer
+      negative_evaluation:
+        type: integer
+      date:
+        type: string

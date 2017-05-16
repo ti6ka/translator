@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Переводчик</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+<body>
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-xs-4">
+            <select class="form-control" id="languageFrom">
+                <option value="en">Английский</option>
+                <option value="ar">Арабский</option>
+                <option value="bs">Боснийский</option>
+                <option value="bg">Болгарский</option>
+                <option value="ca">Каталанский</option>
+                <option value="hr">Хорватский</option>
+                <option value="cs">Чешский</option>
+                <option value="da">Датский</option>
+                <option value="nl">Голландский</option>
+                <option value="et">Эстонский</option>
+                <option value="fi">Финский</option>
+                <option value="fr">Французский</option>
+                <option value="de">Немецкий</option>
+                <option value="el">Греческий</option>
+                <option value="ht">Гаитянский</option>
+                <option value="hi">Хинди</option>
+                <option value="hu">Венгерский</option>
+                <option value="id">Индонезийский</option>
+                <option value="it">Итальянский</option>
+                <option value="ja">Японский</option>
+                <option value="sw">Суахили</option>
+                <option value="ko">Корейский</option>
+                <option value="lv">Латышский</option>
+                <option value="lt">Литовский</option>
+                <option value="ms">Малайский</option>
+                <option value="mt">Мальтийский</option>
+                <option value="no">Норвежский</option>
+                <option value="fa">Персидский</option>
+                <option value="pl">Польский</option>
+                <option value="pt">Португальский</option>
+                <option value="ro">Румынский</option>
+                <option value="ru">Русский</option>
+                <option value="sk">Словацкий</option>
+                <option value="sl">Словенский</option>
+                <option value="es">Испанский</option>
+                <option value="sv">Шведский</option>
+                <option value="th">Тайский</option>
+                <option value="tr">Турецкий</option>
+                <option value="uk">Украинский</option>
+                <option value="ur">Урду</option>
+                <option value="vi">Вьетнамский</option>
+                <option value="cy">Валлийский</option>
+                <option value="cs">Чешский</option>
+            </select>
+        </div>
+        <div class="col-xs-3 col-xs-offset-1">
+            <button type="button" class="btn btn-primary glyphicon glyphicon-resize-horizontal" onclick="changeLanguage()"></button>
+        </div>
+        <div class="col-xs-4">
+            <select class="form-control" id="languageTo">
+                <option value="en">Английский</option>
+                <option value="ar">Арабский</option>
+                <option value="bs">Боснийский</option>
+                <option value="bg">Болгарский</option>
+                <option value="ca">Каталанский</option>
+                <option value="hr">Хорватский</option>
+                <option value="cs">Чешский</option>
+                <option value="da">Датский</option>
+                <option value="nl">Голландский</option>
+                <option value="et">Эстонский</option>
+                <option value="fi">Финский</option>
+                <option value="fr">Французский</option>
+                <option value="de">Немецкий</option>
+                <option value="el">Греческий</option>
+                <option value="ht">Гаитянский</option>
+                <option value="hi">Хинди</option>
+                <option value="hu">Венгерский</option>
+                <option value="id">Индонезийский</option>
+                <option value="it">Итальянский</option>
+                <option value="ja">Японский</option>
+                <option value="sw">Суахили</option>
+                <option value="ko">Корейский</option>
+                <option value="lv">Латышский</option>
+                <option value="lt">Литовский</option>
+                <option value="ms">Малайский</option>
+                <option value="mt">Мальтийский</option>
+                <option value="no">Норвежский</option>
+                <option value="fa">Персидский</option>
+                <option value="pl">Польский</option>
+                <option value="pt">Португальский</option>
+                <option value="ro">Румынский</option>
+                <option selected value="ru">Русский</option>
+                <option value="sk">Словацкий</option>
+                <option value="sl">Словенский</option>
+                <option value="es">Испанский</option>
+                <option value="sv">Шведский</option>
+                <option value="th">Тайский</option>
+                <option value="tr">Турецкий</option>
+                <option value="uk">Украинский</option>
+                <option value="ur">Урду</option>
+                <option value="vi">Вьетнамский</option>
+                <option value="cy">Валлийский</option>
+                <option value="cs">Чешский</option>
+            </select>
+        </div>
+        <br />
+    </div><br />
+    <div class="row">
+        <div class="col-xs-4">
+            <select class="form-control" id="languageImage">
+            <option value="dan">Датский</option>
+            <option value="eng">Английский</option>
+            <option value="fin">Финский</option>
+            <option value="fre">Французский</option>
+            <option value="ger">Немецкий</option>
+            <option value="gre">Греческий</option>
+            <option value="han">Венгерский</option>
+            <option value="cor">Корейский</option>
+            <option value="ita">Итальянский</option>
+            <option value="jpn">Японский</option>
+            <option value="nor">Норвежский</option>
+            <option value="pol">Польский</option>
+            <option value="por">Португальский</option>
+            <option value="rus">Русский</option>
+            <option value="spa">Испанский</option>
+            <option value="swe">Шведский</option>
+            <option value="tur">Турецкий</option>
+        </select>
+        </div>
+        <div class="col-xs-4">
+            <input type="url" class="form-control" id="urlImage" placeholder="Ссылка на изображение">
+        </div>
+        <div class="col-xs-4">
+            <button type="button" class="btn btn-primary" onclick="recognize()">Распознать</button>
+        </div>
+        <div class="col-xs-8">
+            <div id="errorrecognize" style="color: red;"></div>
+        </div>
+    </div><br />
+    <textarea class="form-control" rows="10" cols="70" id="before"></textarea>
+    <br />
+    <div class="col-xs-6">
+        <img src="images/yandex.png" class="img-circle center-block" alt="Cinque Terre" width="200" height="200">
+        <br />
+        <div class="btn-group col-xs-offset-4">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="yandexStatistics()">Статистика</button>
+            <button type="button" class="btn btn-primary" onclick="translateYandex()">Перевести</button>
+        </div>
+        <br />
+        <div class="col-xs-8">
+            <div id="errortranslateyandex" style="color: red;"></div>
+        </div>
+        <br />
+        <textarea class="form-control" rows="10" cols="500" id="yandexText" readonly></textarea><br />
+        <button type="button" class="btn btn-success col-xs-offset-1" onclick="likeYandex()">Нравится</button>
+        <button type="button" class="btn btn-danger col-xs-offset-6" onclick="dislikeYandex()">Не нравится</button>
+        <div class="col-xs-8">
+            <div id="errorlikeyandex" style="color: red;"></div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <img src="images/transltr.png" class="img-circle center-block" alt="Cinque Terre" width="200" height="200">
+        <br />
+        <div class="btn-group col-md-offset-4">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="transltrStatistics()">Статистика</button>
+            <button type="button" class="btn btn-primary" onclick="translateTransltr()">Перевести</button>
+        </div>
+        <br />
+        <div class="col-xs-8">
+            <div id="errortranslatetransltr" style="color: red;"></div>
+        </div>
+        <br />
+        <textarea class="form-control" rows="10" cols="500" readonly id="transltrText"></textarea><br />
+        <button type="button" class="btn btn-success col-xs-offset-1" onclick="likeTransltr()">Нравится</button>
+        <button type="button" class="btn btn-danger col-xs-offset-6" onclick="dislikeTransltr()">Не нравится</button><br /><br />
+        <div class="col-xs-8">
+            <div id="errorliketransltr" style="color: red;"></div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modcon">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="mt"></h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="scripts/script.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>
